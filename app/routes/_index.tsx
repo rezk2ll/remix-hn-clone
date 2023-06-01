@@ -15,7 +15,7 @@ export default function Index() {
   const data = useLoaderData<typeof loader>();
 
   return (
-    <div className='bg-gray-500 min-h-screen'>
+    <div className='bg-gray-200 min-h-screen'>
       <StoryList items={data} />
     </div>
   );
