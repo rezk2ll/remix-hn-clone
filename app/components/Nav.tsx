@@ -19,22 +19,26 @@ const Nav: React.FC = () => {
         </a>
       </div>
       <div className='flex flex-initial divide-x divide-black space-x-1 justify-start items-center font-normal'>
-        <a href='/newest' title='New' className='pl-2'>
+        <a href='/newest' title='New' className='pl-2 hover:no-underline'>
           new
         </a>
-        <a href='/front' title='Past' className='pl-2'>
+        <a href='/front' title='Past' className='pl-2 hover:no-underline'>
           past
         </a>
-        <a href='/newcomments' title='Comments' className='pl-2'>
+        <a
+          href='/newcomments'
+          title='Comments'
+          className='pl-2 hover:no-underline'
+        >
           comments
         </a>
-        <a href='/ask' title='Ask' className='pl-2'>
+        <a href='/ask' title='Ask' className='pl-2 hover:no-underline'>
           ask
         </a>
-        <a href='/show' title='Show' className='pl-2'>
+        <a href='/show' title='Show' className='pl-2 hover:no-underline'>
           show
         </a>
-        <a href='/jobs' title='Jobs' className='pl-2'>
+        <a href='/jobs' title='Jobs' className='pl-2 hover:no-underline'>
           jobs
         </a>
       </div>
