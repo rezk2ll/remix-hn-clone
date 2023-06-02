@@ -5,7 +5,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        'hn-orange': '#ff6600'
+        'hn-orange': '#ff6600',
+        'hn-bg': '#f6f6ef'
       }
     },
   },

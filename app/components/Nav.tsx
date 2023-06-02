@@ -1,5 +1,5 @@
 import logo from '../../public/logo.svg';
-import github from '../../public/github.svg'
+import github from '../../public/github.svg';
 
 const Nav: React.FC = () => {
   return (
@@ -39,13 +39,14 @@ const Nav: React.FC = () => {
         </a>
       </div>
       <div className='flex flex-auto justify-end items-center pr-2'>
-        <a href='/' title='GitHub repo'>
+        <a
+          href='https://github.com/rezk2ll/remix-hn-clone'
+          title='GitHub repo'
+          target='_blank'
+          rel='noreferrer noopener'
+        >
           <div className='flex items-center justify-center'>
-            <img
-              src={github}
-              alt='GitHub logo'
-              className='w-5 h-5'
-            />
+            <img src={github} alt='GitHub logo' className='w-5 h-5' />
           </div>
         </a>
       </div>

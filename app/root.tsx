@@ -1,4 +1,4 @@
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction } from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -6,11 +6,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react";
+} from '@remix-run/react';
 import stylesheet from '~/tailwind.css';
 import Nav from './components/Nav';
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: stylesheet }];
+export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: stylesheet },
+];
 
 export default function App() {
   return (
@@ -21,7 +23,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className='bg-white my-2 mx-24 xl:mx-36'>
+      <body className='bg-white my-2 mx-16 md:mx-40'>
         <Nav />
         <Outlet />
         <ScrollRestoration />
