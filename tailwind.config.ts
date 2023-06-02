@@ -7,9 +7,6 @@ export default {
       colors: {
         'hn-orange': '#ff6600',
         'hn-bg': '#f6f6ef'
-      },
-      fontFamily: {
-        'hn-font': ['Verdana', 'sans-serif']
       }
     },
   },
