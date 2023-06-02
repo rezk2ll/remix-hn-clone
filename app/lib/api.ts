@@ -37,9 +37,7 @@ class ApiService {
     );
     const snapshot: Record<string, number> = (await get(topPostsQuery)).val();
 
-    return Promise.all(
-      Object.values(snapshot).map(async (id) => await this.fetchItem<Story>(id))
-    );
+    return this.fetchItems<Story>(snapshot);
   };
 
   /**
@@ -52,11 +50,9 @@ class ApiService {
       child(this.dbRef, 'newstories'),
       limitToFirst(30)
     );
-    const snapshot: number[] = (await get(newStoriesQuery)).val();
+    const snapshot: Record<string, number> = (await get(newStoriesQuery)).val();
 
-    return Promise.all(
-      snapshot.map(async (id) => await this.fetchItem<Story>(id))
-    );
+    return this.fetchItems<Story>(snapshot);
   };
 
   /**
@@ -69,11 +65,9 @@ class ApiService {
       child(this.dbRef, 'askstories'),
       limitToFirst(30)
     );
-    const snapshot: number[] = (await get(askStoriesQuery)).val();
+    const snapshot: Record<string, number> = (await get(askStoriesQuery)).val();
 
-    return Promise.all(
-      snapshot.map(async (id) => await this.fetchItem<Story>(id))
-    );
+    return this.fetchItems<Story>(snapshot);
   };
 
   /**
@@ -86,11 +80,11 @@ class ApiService {
       child(this.dbRef, 'showstories'),
       limitToFirst(30)
     );
-    const snapshot: number[] = (await get(showStoriesQuery)).val();
+    const snapshot: Record<string, number> = (
+      await get(showStoriesQuery)
+    ).val();
 
-    return Promise.all(
-      snapshot.map(async (id) => await this.fetchItem<Story>(id))
-    );
+    return this.fetchItems<Story>(snapshot);
   };
 
   /**
@@ -103,11 +97,9 @@ class ApiService {
       child(this.dbRef, 'jobstories'),
       limitToFirst(30)
     );
-    const snapshot: number[] = (await get(jobStoriesQuery)).val();
+    const snapshot: Record<string, number> = (await get(jobStoriesQuery)).val();
 
-    return Promise.all(
-      snapshot.map(async (id) => await this.fetchItem<Job>(id))
-    );
+    return this.fetchItems<Job>(snapshot);
   };
 
   /**
@@ -121,11 +113,11 @@ class ApiService {
       equalTo('comment', 'type'),
       limitToFirst(30)
     );
-    const snapshot: number[] = (await get(newCommentsQuery)).val();
+    const snapshot: Record<string, number> = (
+      await get(newCommentsQuery)
+    ).val();
 
-    return Promise.all(
-      snapshot.map(async (id) => await this.fetchItem<Comment>(id))
-    );
+    return this.fetchItems<Comment>(snapshot);
   };
 
   /**
@@ -138,6 +130,21 @@ class ApiService {
     const snapshot = await get(child(this.dbRef, `item/${id}`));
 
     return snapshot.val() as T;
+  };
+
+  /**
+   * Fetches the actual items from the ids provided
+   *
+   * @param {Object} items the items to fetch
+   * @example items = { 'item-id': 1, 'item-id': 2 }
+   * @returns {Promise<T[]>}
+   */
+  private fetchItems = async <T>(
+    items: Record<string, number>
+  ): Promise<T[]> => {
+    return Promise.all(
+      Object.values(items).map(async (id) => await this.fetchItem<T>(id))
+    );
   };
 }
 
