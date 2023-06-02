@@ -1,50 +1,83 @@
 import logo from '../../public/logo.svg';
 import github from '../../public/github.svg';
+import { NavLink } from '@remix-run/react';
 
 const Nav: React.FC = () => {
   return (
     <nav className='bg-hn-orange w-full h-6 flex flex-row space-x-1 text-xs py-3'>
       <div className='inline-flex justify-center items-center px-1'>
-        <a href='/' title='Hacker news'>
+        <NavLink to='/' title='Hacker news'>
           <div className='flex items-center justify-center'>
             <img
               src={logo}
               alt='logo'
-              className='w-5 h-5 border-solid border border-white'
+              className='w-5 h-5 border-solid border border-white hover:no-underline'
             />
             <span className='text-black font-bold text-xs pl-1'>
               Hacker News
             </span>
           </div>
-        </a>
+        </NavLink>
       </div>
       <div className='flex flex-initial divide-x divide-black space-x-1 justify-start items-center font-normal'>
-        <a href='/newest' title='New' className='pl-2 hover:no-underline'>
+        <NavLink
+          to='/newest'
+          title='New'
+          className={({ isActive }) =>
+            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
+          }
+        >
           new
-        </a>
-        <a href='/front' title='Past' className='pl-2 hover:no-underline'>
+        </NavLink>
+        <NavLink
+          to='/front'
+          title='Past'
+          className={({ isActive }) =>
+            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
+          }
+        >
           past
-        </a>
-        <a
-          href='/newcomments'
+        </NavLink>
+        <NavLink
+          to='/newcomments'
           title='Comments'
-          className='pl-2 hover:no-underline'
+          className={({ isActive }) =>
+            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
+          }
         >
           comments
-        </a>
-        <a href='/ask' title='Ask' className='pl-2 hover:no-underline'>
+        </NavLink>
+        <NavLink
+          to='/ask'
+          title='Ask'
+          className={({ isActive }) =>
+            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
+          }
+        >
           ask
-        </a>
-        <a href='/show' title='Show' className='pl-2 hover:no-underline'>
+        </NavLink>
+        <NavLink
+          to='/show'
+          title='Show'
+          className={({ isActive }) =>
+            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
+          }
+        >
           show
-        </a>
-        <a href='/jobs' title='Jobs' className='pl-2 hover:no-underline'>
+        </NavLink>
+        <NavLink
+          to='/jobs'
+          title='Jobs'
+          className={({ isActive }) =>
+            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
+          }
+        >
           jobs
-        </a>
+        </NavLink>
       </div>
       <div className='flex flex-auto justify-end items-center pr-2'>
-        <a
-          href='https://github.com/rezk2ll/remix-hn-clone'
+        <NavLink
+          to='https://github.com/rezk2ll/remix-hn-clone'
           title='GitHub repo'
           target='_blank'
           rel='noreferrer noopener'
@@ -52,7 +85,7 @@ const Nav: React.FC = () => {
           <div className='flex items-center justify-center'>
             <img src={github} alt='GitHub logo' className='w-5 h-5' />
           </div>
-        </a>
+        </NavLink>
       </div>
     </nav>
   );
