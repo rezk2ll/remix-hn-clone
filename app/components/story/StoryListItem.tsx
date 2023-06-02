@@ -4,7 +4,7 @@ import { getTimeDifference, getUrlDomain } from '~/utils';
 
 const StoryListItem: React.FC<{ item: Story }> = ({ item }) => {
   return (
-    <div className='flex flex-col -space-y-1 pt-0.5'>
+    <div className='flex flex-col -space-y-1.5'>
       <a
         href={item.url}
         target='_blank'
@@ -12,14 +12,14 @@ const StoryListItem: React.FC<{ item: Story }> = ({ item }) => {
         className='hover:no-underline flex space-x-0.5 text-xs'
       >
         <img src={triangle} alt='upvote' className='h-4 pb-1' />
-        <h1>{item.title}</h1>
+        <span>{item.title}</span>
         {item.url ? (
           <p className='text-gray-500 text-[10px]'>
             ({getUrlDomain(item.url)})
           </p>
         ) : null}
       </a>
-      <div className='text-gray-500 text-[10px] font-light flex space-x-1 pl-4'>
+      <div className='text-gray-500 text-[10px] font-light flex space-x-1 pl-3'>
         <div className='flex space-x-0.5'>
           <p>{item.score} points</p>
           <span>

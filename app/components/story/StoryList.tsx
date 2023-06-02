@@ -3,10 +3,10 @@ import StoryListItem from './StoryListItem';
 
 const StoryList: React.FC<{ items: Story[] }> = ({ items }) => {
   return (
-    <div className='flex flex-col text-sm'>
+    <div className='flex flex-col text-base'>
       {items.map((item, index) => (
         <div className='flex space-x-2' key={index}>
-          <p className='text-gray-400 w-4 justify-self-end'>{index + 1}.</p>
+          <p className='text-gray-400 w-4 text-xs pl-2'>{index + 1}.</p>
           <StoryListItem item={item} key={index} />
         </div>
       ))}
