@@ -1,4 +1,4 @@
-import type { LinksFunction } from '@remix-run/node';
+import type { LinksFunction, V2_MetaFunction } from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -9,6 +9,10 @@ import {
 } from '@remix-run/react';
 import stylesheet from '~/tailwind.css';
 import Nav from './components/Nav';
+
+export const meta: V2_MetaFunction = () => {
+  return [{ title: 'Remix HackerNews Clone' }];
+};
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
@@ -23,7 +27,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className='bg-white my-2 mx-16 md:mx-40'>
+      <body className='bg-white my-2 mx-16 md:mx-36'>
         <Nav />
         <Outlet />
         <ScrollRestoration />
