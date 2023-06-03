@@ -13,7 +13,7 @@ export interface Item {
   score?: number;
   title?: string;
   parts?: number[];
-  descendants?: number;
+  descendants?: number[];
 }
 
 export interface Story extends Item {
@@ -60,4 +60,14 @@ export interface User {
   delay: number;
   karma: number;
   submitted: number[];
+}
+
+export interface FullItem {
+  item: Item;
+  descendants: FullItem[];
+}
+
+export interface AdjacentComments {
+  prev: number | null;
+  next: number | null;
 }
