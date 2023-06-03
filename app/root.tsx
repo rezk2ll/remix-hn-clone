@@ -27,7 +27,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className='bg-white my-2 mx-16 md:mx-36'>
+      <body className='bg-white my-2 mx-14 md:mx-36'>
         <Nav />
         <Outlet />
         <ScrollRestoration />
