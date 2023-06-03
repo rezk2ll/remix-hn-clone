@@ -10,7 +10,7 @@ import {
   query,
   equalTo,
 } from '@firebase/database';
-import type { Story, Job, Comment } from '~/types';
+import type { Story, Job, Comment, FullItem, Item } from '~/types';
 
 const DB_URL = process.env.DB_URL || 'https://hacker-news.firebaseio.com/';
 const DB_PATH = process.env.DB_PATH || '/v0';
@@ -145,6 +145,42 @@ class ApiService {
     return Promise.all(
       Object.values(items).map(async (id) => await this.fetchItem<T>(id))
     );
+  };
+
+  /**
+   * Fetches the item descendants
+   *
+   * @param {number[]} ids the descendant ids
+   * @returns {Promise<Comment[]>}
+   */
+  fetchItemKids = async (ids: number[]): Promise<Comment[]> => {
+    const kids = await Promise.all(
+      ids.map(async (id) => await this.fetchItem<Comment>(id))
+    );
+
+    return kids;
+  };
+
+  /**
+   * Fetches the Full item and its descendant tree
+   *
+   * @param {number} id the item id
+   * @returns {Promise<FullItem>}
+   */
+  fetchFullItem = async (id: number): Promise<FullItem> => {
+    const item = await this.fetchItem<Item>(id);
+
+    if (item.kids) {
+      const descendants = await this.fetchItemKids(item.kids);
+
+      const fullDescendants = await Promise.all(
+        descendants.map(async (descendant) => this.fetchFullItem(descendant.id))
+      );
+
+      return { item, descendants: fullDescendants };
+    }
+
+    return { item, descendants: [] };
   };
 }
 
