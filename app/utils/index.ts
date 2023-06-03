@@ -41,13 +41,15 @@ export const getTimeDifference = (unixTimestamp: number): string => {
 };
 
 /**
- * Recursively calculates the size of a comment tree
+ * Recursively calculates the size of a comment tree.
+ * 
+ * the total size is the number of comments + the parent comment
  *
  * @param {FullItem} comments - the initial comment list
  * @returns {number} the comment tree size
  */
 export const getCommentsTreeSize = (comments: FullItem[]): number => {
-  const initialSize = comments.length;
+  const initialSize = comments.length + 1;
 
   return comments.reduce(
     (acc, comment) => acc + getCommentsTreeSize(comment.descendants),
