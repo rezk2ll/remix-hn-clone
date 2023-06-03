@@ -9,7 +9,8 @@ const ItemInfo: React.FC<{ item: Item }> = ({ item }) => {
         <span>
           by <a href={`/user/${item.by}`}>{item.by}</a>
         </span>
-        <a href={`/item/${item.id}`}>{getTimeDifference(item.time)} ago </a> |
+        <a href={`/item/${item.id}`}>{getTimeDifference(item.time)} ago </a>
+        <span>|</span>
       </div>
       <a href={`/item/${item.id}`}>{item.descendants} comments</a>
     </div>
