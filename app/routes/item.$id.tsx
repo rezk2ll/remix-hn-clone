@@ -34,7 +34,7 @@ export default function Item() {
           comment={comment.item}
           key={comment.item.id}
           kids={comment.descendants}
-          adjacent={getAdjacentComments(descendants, index)}
+          nav={{ ...getAdjacentComments(descendants, index), parent: null }}
         />
       ))}
     </div>

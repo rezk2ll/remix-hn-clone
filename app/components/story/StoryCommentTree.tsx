@@ -1,17 +1,20 @@
-import type { AdjacentComments, Comment, FullItem, Item } from '~/types';
+import type {
+  Comment,
+  CommentNavigation,
+  FullItem,
+  Item,
+} from '~/types';
 import {
   getAdjacentComments,
-  getCommentsTreeSize,
-  getTimeDifference,
 } from '~/utils';
-import triangle from '~/../public/triangle.svg';
 import { useState } from 'react';
+import CommentHead from '../comment/CommentHead';
 
 const StoryCommentTree: React.FC<{
   comment: Comment | Item;
   kids: FullItem[];
-  adjacent: AdjacentComments;
-}> = ({ comment, kids, adjacent }) => {
+  nav: CommentNavigation;
+}> = ({ comment, kids, nav }) => {
   const [display, setDisplay] = useState<boolean>(true);
 
   const toggleDispaly = () => {
@@ -20,39 +23,13 @@ const StoryCommentTree: React.FC<{
 
   return (
     <div className='flex flex-col space-y-1 pb-2' id={`${comment.id}`}>
-      <div className='flex items-center text-gray-500 text-[10px] font-light space-x-0.5 pl-3'>
-        <img src={triangle} alt='upvote' className='h-3 pb-1' />
-        <span>
-          by <a href={`/user/${comment.by}`}>{comment.by}</a>
-        </span>
-        <a href={`/item/${comment.id}`}>
-          {getTimeDifference(comment.time)} ago
-        </a>
-        |
-        {adjacent.prev ? (
-          <>
-            <a href={`#${adjacent.prev}`} className='hover:underline'>
-              prev
-            </a>
-            |
-          </>
-        ) : null}
-        {adjacent.next ? (
-          <a href={`#${adjacent.next}`} className='hover:underline'>
-            next
-          </a>
-        ) : null}
-        <span
-          onClick={toggleDispaly}
-          className='cursor-pointer hover:underline'
-        >
-          {display
-            ? '[-]'
-            : kids.length > 0
-            ? `[${getCommentsTreeSize(kids)} more]`
-            : '[1 more]'}
-        </span>
-      </div>
+      <CommentHead
+        comment={comment}
+        nav={nav}
+        display={display}
+        kids={kids}
+        onToggleDisplay={toggleDispaly}
+      />
       {display ? (
         <div className='pl-5'>
           {comment.deleted ? (
@@ -70,7 +47,7 @@ const StoryCommentTree: React.FC<{
                 key={kid.item.id}
                 comment={kid.item}
                 kids={kid.descendants}
-                adjacent={getAdjacentComments(kids, index)}
+                nav={{...getAdjacentComments(kids, index), parent: comment.id}}
               />
             ))}
           </div>
