@@ -71,3 +71,7 @@ export interface AdjacentComments {
   prev: number | null;
   next: number | null;
 }
+
+export interface CommentNavigation extends AdjacentComments {
+  parent: number | null;
+}
