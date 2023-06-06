@@ -23,11 +23,11 @@ export default function App() {
     <html lang='en'>
       <head>
         <meta charSet='utf-8' />
-        <meta name='viewport' content='width=device-width,initial-scale=1' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <Meta />
         <Links />
       </head>
-      <body className='bg-white my-2 mx-14 md:mx-36'>
+      <body className='bg-white my-2 md:mx-36'>
         <Nav />
         <Outlet />
         <ScrollRestoration />
