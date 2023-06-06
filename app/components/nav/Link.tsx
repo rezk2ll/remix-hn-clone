@@ -6,7 +6,7 @@ const Link: React.FC<{ title: string; url: string }> = ({ title, url }) => {
       to={url}
       title={title}
       className={({ isActive }) =>
-        `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
+        `pl-2 hover:no-underline ${isActive ? 'text-hn-bg dark:text-slate-800' : ''}`
       }
       aria-label={`${title} link`}
     >
