@@ -1,6 +1,6 @@
 import type { Item } from '~/types';
 import triangle from '../../../public/triangle.svg';
-import { getUrlDomain } from '~/utils';
+import { getUrlDomain } from '~/utils/url';
 
 const ItemTitle: React.FC<{ size?: 'xs' | 'sm'; item: Item }> = ({
   size = 'sm',

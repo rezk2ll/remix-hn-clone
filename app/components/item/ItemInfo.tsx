@@ -1,5 +1,5 @@
 import type { Item } from '~/types';
-import { getTimeDifference } from '~/utils';
+import { getTimeDifference } from '~/utils/time';
 
 const ItemInfo: React.FC<{ item: Item }> = ({ item }) => {
   return (

@@ -1,12 +1,5 @@
-import type {
-  Comment,
-  CommentNavigation,
-  FullItem,
-  Item,
-} from '~/types';
-import {
-  getAdjacentComments,
-} from '~/utils';
+import type { Comment, CommentNavigation, FullItem, Item } from '~/types';
+import { getAdjacentComments } from '~/utils/comment';
 import { useState } from 'react';
 import CommentHead from '../comment/CommentHead';
 
@@ -47,7 +40,10 @@ const StoryCommentTree: React.FC<{
                 key={kid.item.id}
                 comment={kid.item}
                 kids={kid.descendants}
-                nav={{...getAdjacentComments(kids, index), parent: comment.id}}
+                nav={{
+                  ...getAdjacentComments(kids, index),
+                  parent: comment.id,
+                }}
               />
             ))}
           </div>

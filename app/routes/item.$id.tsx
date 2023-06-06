@@ -6,7 +6,7 @@ import CommentForm from '~/components/forms/CommentForm';
 import StoryCommentTree from '~/components/story/StoryCommentTree';
 import StoryItem from '~/components/story/StoryItem';
 import apiService from '~/lib/api';
-import { getAdjacentComments } from '~/utils';
+import { getAdjacentComments } from '~/utils/comment';
 
 export async function loader({ params }: LoaderArgs) {
   const { id } = params;

@@ -1,6 +1,7 @@
 import type { CommentNavigation, FullItem, Item, Comment } from '~/types';
 import CommentNav from './CommentNav';
-import { getCommentsTreeSize, getTimeDifference } from '~/utils';
+import { getTimeDifference } from '~/utils/time';
+import { getCommentsTreeSize } from '~/utils/comment';
 import triangle from '~/../public/triangle.svg';
 
 const CommentHead: React.FC<{

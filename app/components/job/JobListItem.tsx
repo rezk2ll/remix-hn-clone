@@ -1,5 +1,6 @@
 import type { Job } from '~/types';
-import { getTimeDifference, getUrlDomain } from '~/utils';
+import { getTimeDifference } from '~/utils/time';
+import { getUrlDomain } from '~/utils/url';
 
 const JobListItem: React.FC<{ item: Job }> = ({ item }) => {
   return (

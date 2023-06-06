@@ -4,7 +4,7 @@ import {
   type ActionFunction,
   json,
 } from '@remix-run/node';
-import { isValidTheme } from '~/utils/theme/theme';
+import { isValidTheme } from '~/utils/theme';
 import { getThemeSession } from '~/utils/theme/theme.server';
 
 export const action: ActionFunction = async ({ request }) => {
