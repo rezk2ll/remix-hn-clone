@@ -1,6 +1,7 @@
 import logo from '../../public/logo.svg';
 import github from '../../public/github.svg';
 import { NavLink } from '@remix-run/react';
+import Link from './nav/Link';
 
 const Nav: React.FC = () => {
   return (
@@ -20,60 +21,12 @@ const Nav: React.FC = () => {
         </NavLink>
       </div>
       <div className='flex flex-initial divide-x divide-black space-x-1 justify-start items-center font-normal'>
-        <NavLink
-          to='/newest'
-          title='New'
-          className={({ isActive }) =>
-            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
-          }
-        >
-          new
-        </NavLink>
-        <NavLink
-          to='/front'
-          title='Past'
-          className={({ isActive }) =>
-            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
-          }
-        >
-          past
-        </NavLink>
-        <NavLink
-          to='/newcomments'
-          title='Comments'
-          className={({ isActive }) =>
-            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
-          }
-        >
-          comments
-        </NavLink>
-        <NavLink
-          to='/ask'
-          title='Ask'
-          className={({ isActive }) =>
-            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
-          }
-        >
-          ask
-        </NavLink>
-        <NavLink
-          to='/show'
-          title='Show'
-          className={({ isActive }) =>
-            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
-          }
-        >
-          show
-        </NavLink>
-        <NavLink
-          to='/jobs'
-          title='Jobs'
-          className={({ isActive }) =>
-            `pl-2 hover:no-underline ${isActive ? 'text-hn-bg' : ''}`
-          }
-        >
-          jobs
-        </NavLink>
+        <Link url='/newest' title='new' />
+        <Link url='/front' title='past' />
+        <Link url='/newcomments' title='comments' />
+        <Link url='/ask' title='ask' />
+        <Link url='/show' title='show' />
+        <Link url='/jobs' title='jobs' />
       </div>
       <div className='flex flex-auto justify-end items-center pr-2'>
         <NavLink
