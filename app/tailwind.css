@@ -5,3 +5,8 @@
 a {
   @apply cursor-pointer hover:underline
 }
+
+html.dark {
+  --text-colour: white;
+  --background-colour: black;
+}

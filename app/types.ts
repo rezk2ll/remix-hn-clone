@@ -1,3 +1,5 @@
+import type { Dispatch, SetStateAction } from 'react';
+
 export interface Item {
   id: number;
   time: number;
@@ -75,3 +77,10 @@ export interface AdjacentComments {
 export interface CommentNavigation extends AdjacentComments {
   parent: number | null;
 }
+
+export enum Theme {
+  LIGHT = 'light',
+  DARK = 'dark',
+}
+
+export type ThemeContextType = [Theme, () => void];

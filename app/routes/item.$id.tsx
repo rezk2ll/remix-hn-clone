@@ -26,7 +26,7 @@ export default function Item() {
   const { item, descendants } = useLoaderData<typeof loader>();
 
   return (
-    <div className='flex flex-col space-y-1 pt-4 bg-hn-bg px-2'>
+    <div className='flex flex-col space-y-1 pt-4 bg-hn-bg dark:bg-slate-800 px-2'>
       <StoryItem item={item} />
       <CommentForm />
       {descendants.map((comment, index) => (

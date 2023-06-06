@@ -11,7 +11,7 @@ export default function Newest() {
   const data = useLoaderData<typeof loader>();
 
   return (
-    <div className='bg-hn-bg min-h-screen pt-2'>
+    <div className='bg-hn-bg dark:bg-slate-800 min-h-screen pt-2'>
       <StoryList items={data} />
     </div>
   );

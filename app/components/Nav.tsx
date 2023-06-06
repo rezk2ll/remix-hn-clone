@@ -2,6 +2,7 @@ import logo from '../../public/logo.svg';
 import github from '../../public/github.svg';
 import { NavLink } from '@remix-run/react';
 import Link from './nav/Link';
+import ThemeSwitch from './nav/ThemeSwitch';
 
 const Nav: React.FC = () => {
   return (
@@ -28,7 +29,8 @@ const Nav: React.FC = () => {
         <Link url='/show' title='show' />
         <Link url='/jobs' title='jobs' />
       </div>
-      <div className='flex flex-auto justify-end items-center pr-2'>
+      <div className='flex flex-auto justify-end items-center space-x-2 pr-2'>
+        <ThemeSwitch />
         <NavLink
           to='https://github.com/rezk2ll/remix-hn-clone'
           title='GitHub repo'

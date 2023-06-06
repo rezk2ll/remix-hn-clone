@@ -11,7 +11,7 @@ export default function Jobs() {
   const data = useLoaderData<typeof loader>();
 
   return (
-    <div className='bg-hn-bg min-h-screen pt-4 pl-3'>
+    <div className='bg-hn-bg dark:bg-slate-800 min-h-screen pt-4 pl-3'>
       <div className='text-gray-500 text-xs pb-3'>
         <span>
           These are jobs at YC startups. See more at{' '}
