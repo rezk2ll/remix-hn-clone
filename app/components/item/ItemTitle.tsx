@@ -11,7 +11,7 @@ const ItemTitle: React.FC<{ size?: 'xs' | 'sm'; item: Item }> = ({
       href={item.url}
       target='_blank'
       rel='noreferrer'
-      className={`hover:no-underline flex space-x-0.5 overflow-hidden text-ellipsis whitespace-nowrap ${
+      className={`hover:no-underline flex space-x-0.5 ${
         size === 'sm' ? 'text-sm' : 'text-xs'
       }`}
     >
@@ -20,14 +20,14 @@ const ItemTitle: React.FC<{ size?: 'xs' | 'sm'; item: Item }> = ({
         alt='upvote'
         className={`h-4 ${size === 'sm' ? 'pb-0.5' : 'pb-1'}`}
       />
-      <span className='overflow-hidden text-ellipsis whitespace-nowrap'>
-        {item.title}
-      </span>
-      {item.url ? (
-        <p className='text-gray-500 text-[10px] overflow-x-hidden text-ellipsis whitespace-nowrap'>
-          ({getUrlDomain(item.url)})
-        </p>
-      ) : null}
+      <div className='flex space-x-0.5 overflow-hidden flex-wrap'>
+        <span>{item.title}</span>
+        {item.url ? (
+          <p className='text-gray-500 text-[10px]'>
+            ({getUrlDomain(item.url)})
+          </p>
+        ) : null}
+      </div>
     </a>
   );
 };

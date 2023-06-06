@@ -15,7 +15,7 @@ const StoryCommentTree: React.FC<{
   };
 
   return (
-    <div className='flex flex-col space-y-1 pb-2' id={`${comment.id}`}>
+    <div className='flex flex-col space-y-1 pb-2 w-full max-w-full overflow-hidden flex-wrap' id={`${comment.id}`}>
       <CommentHead
         comment={comment}
         nav={nav}
@@ -24,8 +24,8 @@ const StoryCommentTree: React.FC<{
         onToggleDisplay={toggleDispaly}
       />
       {display ? (
-        <div className='pl-5'>
-          {comment.deleted ? (
+        <div className='pl-0.5 md:pl-5'>
+        {comment.deleted ? (
             <div className='text-xs italic text-gray-500'>deleted</div>
           ) : (
             <div
@@ -34,7 +34,7 @@ const StoryCommentTree: React.FC<{
             />
           )}
           <span className='underline text-xs'>reply</span>
-          <div className='pl-4'>
+          <div className='sm:pl-0.5 md:pl-4'>
             {kids.map((kid, index) => (
               <StoryCommentTree
                 key={kid.item.id}

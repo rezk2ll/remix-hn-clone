@@ -4,7 +4,7 @@ import ItemInfo from '../item/ItemInfo';
 
 const StoryListItem: React.FC<{ item: Story | Item }> = ({ item }) => {
   return (
-    <div className='flex flex-col -space-y-1.5'>
+    <div className='flex flex-col -space-y-1.5 w-full max-w-full'>
       <ItemTitle item={item} size='xs' />
       <ItemInfo item={item} />
     </div>

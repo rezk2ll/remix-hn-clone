@@ -15,7 +15,7 @@ const Nav: React.FC = () => {
               alt='logo'
               className='w-5 h-5 border-solid border border-white hover:no-underline'
             />
-            <span className='text-black font-bold text-xs pl-1'>
+            <span className='text-black font-bold text-xs pl-1 hidden md:block'>
               Hacker News
             </span>
           </div>

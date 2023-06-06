@@ -6,7 +6,7 @@ const CommentForm: React.FC = () => {
         id='comment-form'
         cols={80}
         rows={8}
-        className='border border-slate-700 dark:text-black'
+        className='border border-slate-700 dark:text-black max-w-full'
       ></textarea>
       <input
         type='submit'
