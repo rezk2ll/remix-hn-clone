@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react';
 import type { Item } from '~/types';
 import { getTimeDifference } from '~/utils/time';
 
@@ -7,12 +8,12 @@ const ItemInfo: React.FC<{ item: Item }> = ({ item }) => {
       <div className='flex space-x-0.5'>
         <p>{item.score} points</p>
         <span>
-          by <a href={`/user/${item.by}`}>{item.by}</a>
+          by <Link to={`/user/${item.by}`} prefetch='intent'>{item.by}</Link>
         </span>
-        <a href={`/item/${item.id}`}>{getTimeDifference(item.time)} ago </a>
+        <Link to={`/item/${item.id}`} prefetch='intent'>{getTimeDifference(item.time)} ago </Link>
         <span>|</span>
       </div>
-      <a href={`/item/${item.id}`}>{item.descendants} comments</a>
+      <Link to={`/item/${item.id}`} prefetch='intent'>{item.descendants} comments</Link>
     </div>
   );
 };
